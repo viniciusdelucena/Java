@@ -32,11 +32,11 @@ public class Aluno{
     this.matricula = matricula;
   }
 
-  public int getIdadeMaxima(){
+  public static int getIdadeMaxima(){
     return idadeMaxima;
   }
   
-  public void setIdadeMaxima(int idadeMaxima){
+  public static void setIdadeMaxima(int idadeMaxima){
     Aluno.idadeMaxima = idadeMaxima;
   }
 }
