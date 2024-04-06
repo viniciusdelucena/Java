@@ -1,6 +1,6 @@
 compile = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')"
-run = "java -classpath .:target/dependency/* Linguagem/For"
-entrypoint = "src/main/java/Linguagem/For.java"
+run = "java -classpath .:target/dependency/* Linguagem/If"
+entrypoint = "src/main/java/Linguagem/If.java"
 hidden = ["**/*.class"]
 
 [packager]
@@ -60,5 +60,5 @@ mainClass = "Main"
 
 [deployment]
 build = ["javac", "-classpath", ".:target/dependency/*", "-d", ".", "$(find . -type f -name '*.java')"]
-run = ["java", "-classpath", ".:target/dependency/*", "Linguagem/For"]
+run = ["java", "-classpath", ".:target/dependency/*", "Linguagem/If"]
 deploymentTarget = "cloudrun"
