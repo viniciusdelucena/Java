@@ -1,9 +1,9 @@
-package Linguagem;
+package Linguagem.Lista;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lista{
+public class Aprendizagem{
 
   public static void main(String[] args){
     
