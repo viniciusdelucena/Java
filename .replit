@@ -1,6 +1,6 @@
 compile = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')"
-run = "java -classpath .:target/dependency/* Linguagem/Lista/VerificarImpar"
-entrypoint = "src/main/java/Linguagem/Lista/VerificarImpar.java"
+run = "java -classpath .:target/dependency/* EstruturaDeDados/ListaSimples"
+entrypoint = "src/main/java/EstruturaDeDados/ListaSimples.java"
 hidden = ["**/*.class"]
 
 [packager]
@@ -56,9 +56,21 @@ type = "request"
 
 [debugger.interactive.launchMessage.arguments]
 classPaths = ["."]
-mainClass = "Linguagem/Lista/VerificarImpar"
+mainClass = "EstruturaDeDados/ListaSimples"
 
 [deployment]
-build = ["javac", "-classpath", ".:target/dependency/*", "-d", ".", "$(find . -type f -name '*.java')"]
-run = ["java", "-classpath", ".:target/dependency/*", "Linguagem/Lista/VerificarImpar"]
+build = [
+  "javac",
+  "-classpath",
+  ".:target/dependency/*",
+  "-d",
+  ".",
+  "$(find . -type f -name '*.java')",
+]
+run = [
+  "java",
+  "-classpath",
+  ".:target/dependency/*",
+  "EstruturaDeDados/ListaSimples",
+]
 deploymentTarget = "cloudrun"

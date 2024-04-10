@@ -1,4 +1,4 @@
-package Linguagem.Lista;
+/*package Linguagem.Lista;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,4 +26,4 @@ public class Aprendizagem{
   }
   
 }
-}
+} */
