@@ -63,12 +63,38 @@ public class ListaSimples{
       inserirInicio(info);
     } else if(indice >= tamanho){
       inserirFim(info);
+    } else{
+      No apontaPraAtual = inicio;
+      for(int i = 0; i < indice - 1; i++){
+        apontaPraAtual = apontaPraAtual.proximo;
+      }
+      No no = new No();
+      no.info = info;
+      no.proximo = apontaPraAtual.proximo;
+      apontaPraAtual.proximo = no;
+      tamanho++;
     }
-    No apontaPraAtual = inicio;
-    for(int i = 0; i < indice; i++){
-      
+  }
+
+  public String retirarNoIndice(int indice){
+    if(indice < 0 ||
+       indice >= tamanho ||
+       inicio == null ){
+      return null;
+    } else if(indice == 0){
+      return(retirarInicio());
+    } else if(indice == tamanho-1){
+      return(retirarFim());
+    } else{
+      No apontaPraAtual = inicio;
+      for(int i = 0; i < indice - 1; i++){
+        apontaPraAtual = apontaPraAtual.proximo;
+      }
+      String info = apontaPraAtual.proximo.info;
+      apontaPraAtual.proximo = apontaPraAtual.proximo.proximo;
+      tamanho--;
+      return info;
     }
-    
   }
 
   public String exibirLista(){
@@ -92,6 +118,15 @@ public class ListaSimples{
     l.inserirFim("7");
     System.out.println(l.exibirLista());
     l.retirarFim();
+    System.out.println(l.exibirLista());
+    l.inserirNoIndice(2, "noIndice");
+    System.out.println(l.exibirLista());
+    l.retirarFim();
+    l.retirarFim();
+    l.inserirNoIndice(2, "info");
+    System.out.println(l.exibirLista());
+    l.inserirFim("c");
+    System.out.println(l.retirarNoIndice(2));
     System.out.println(l.exibirLista());
   }
 }
