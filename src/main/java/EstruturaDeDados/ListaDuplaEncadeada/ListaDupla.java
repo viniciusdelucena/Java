@@ -86,7 +86,7 @@ public class ListaDupla{
     } 
   }
 
-  public String retirarNoindice(int indice){
+  public String retirarNoIndice(int indice){
     if(indice < 0 || indice >= tamanho || inicio == null){
       return null;
     } else if(indice == 0){
@@ -100,6 +100,11 @@ public class ListaDupla{
       }
       String info = apontaPraAtual.proximo.info;
       apontaPraAtual.proximo = apontaPraAtual.proximo.proximo;
+      if (apontaPraAtual.proximo != null) {
+          apontaPraAtual.proximo.anterior = apontaPraAtual;
+      } else {
+          fim = apontaPraAtual;
+      }
       tamanho--;
       return info;
     }
@@ -133,10 +138,10 @@ public class ListaDupla{
     l.inserirNoIndice(3, "//");
     l.inserirNoIndice(-1, "Lista: ");
     System.out.println(l.exibirLista());
-    System.out.println(l.inicio.info);
-    System.out.println(l.fim.info);
-    l.retirarNoindice(3);
-    l.retirarNoindice(1);
+    l.retirarNoIndice(3);
+    l.retirarNoIndice(1);
+    System.out.println(l.exibirLista());
+    l.retirarNoIndice(0);
     System.out.println(l.exibirLista());
   }
   
