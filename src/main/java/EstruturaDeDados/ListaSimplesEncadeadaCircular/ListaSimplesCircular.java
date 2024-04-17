@@ -9,6 +9,22 @@ public class ListaSimplesCircular{
     no.info = info;
     no.proximo = inicio;
     inicio = no;
+    if(no.proximo == null){
+      no.proximo = no;
+    } else{
+      No apontaPraAtual = inicio;
+      while(apontaPraAtual.proximo != null){
+        apontaPraAtual = apontaPraAtual.proximo;
+      }
+      apontaPraAtual.proximo = inicio;
+    }
     tamanho++;
+  }
+
+  public String retirarInicio(){
+    if(inicio == null){
+      return null;
+    }
+    return null;
   }
 }
