@@ -1,6 +1,6 @@
 compile = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')"
-run = "java -classpath .:target/dependency/* EstruturaDeDados/ListaDuplaEncadeada/ListaDupla"
-entrypoint = "src/main/java/EstruturaDeDados/ListaDuplaEncadeada/ListaDupla.java"
+run = "java -classpath .:target/dependency/* EstruturaDeDados/ListaSimplesEncadeadaCircular/ListaSimplesCircular"
+entrypoint = "src/main/java/EstruturaDeDados/ListaSimplesEncadeadaCircular/ListaSimplesCircular.java"
 hidden = ["**/*.class"]
 
 [packager]
@@ -56,7 +56,7 @@ type = "request"
 
 [debugger.interactive.launchMessage.arguments]
 classPaths = ["."]
-mainClass = "EstruturaDeDados/ListaDuplaEncadeada/ListaDupla"
+mainClass = "EstruturaDeDados/ListaSimplesEncadeadaCircular/ListaSimplesCircular"
 
 [deployment]
 build = [
@@ -71,6 +71,6 @@ run = [
   "java",
   "-classpath",
   ".:target/dependency/*",
-  "EstruturaDeDados/ListaDuplaEncadeada/ListaDupla",
+  "EstruturaDeDados/ListaSimplesEncadeadaCircular/ListaSimplesCircular",
 ]
 deploymentTarget = "cloudrun"
