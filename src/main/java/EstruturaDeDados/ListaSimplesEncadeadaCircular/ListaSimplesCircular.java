@@ -4,38 +4,44 @@ public class ListaSimplesCircular{
   No inicio = null;
   int tamanho = 0;
 
-  //verificar erro nos metodos, metodos entrando em loop infinito
+  //Corrigido
   public void inserirInicio(String info){
     No no = new No();
     no.info = info;
     no.proximo = inicio;
-    inicio = no;
     if(no.proximo == null){
+      inicio = no;
       no.proximo = no;
     } else{
       No apontaPraAtual = inicio;
-      while(apontaPraAtual.proximo != null){
+      while(apontaPraAtual.proximo != inicio){
         apontaPraAtual = apontaPraAtual.proximo;
       }
-      apontaPraAtual.proximo = inicio;
+      apontaPraAtual.proximo = no;
+      inicio = no;
     }
     tamanho++;
   }
 
+  //Corrigido
   public String retirarInicio(){
     if(inicio == null){
       return null;
-    } 
-    String info = inicio.info;
-    inicio = inicio.proximo;
-    No apontaPraAtual = inicio;
-    while(apontaPraAtual.proximo != null){
-      apontaPraAtual = apontaPraAtual.proximo;
+    } else{
+      String info = inicio.info;
+      if(inicio.proximo == inicio){
+        inicio = null;
+      } else{
+        No apontaPraAtual = inicio;
+        while(apontaPraAtual.proximo != inicio){
+          apontaPraAtual = apontaPraAtual.proximo;
+        }
+        apontaPraAtual.proximo = inicio.proximo; 
+        inicio = apontaPraAtual.proximo;
+      }
+      tamanho--;
+      return "Retirado" + info;
     }
-    apontaPraAtual.proximo = inicio;
-    tamanho--;
-    
-    return "Retirado" + info;
   }
 
   public void inserirFim(String info){
@@ -111,7 +117,19 @@ public class ListaSimplesCircular{
     ListaSimplesCircular l = new ListaSimplesCircular();
     l.inserirInicio("A");
     System.out.println(l.exibirLista());
-    l.inserirFim("B");
+    l.inserirInicio("B");
+    System.out.println(l.exibirLista());
+    l.inserirInicio("C");
+    System.out.println(l.exibirLista());
+    l.inserirInicio("D");
+    System.out.println(l.exibirLista());
+    l.retirarInicio();
+    System.out.println(l.exibirLista());
+    l.retirarInicio();
+    System.out.println(l.exibirLista());
+    l.retirarInicio();
+    System.out.println(l.exibirLista());
+    /*l.inserirFim("B");
     l.inserirFim("C");
     System.out.println(l.exibirLista());
     l.retirarInicio();
@@ -121,7 +139,7 @@ public class ListaSimplesCircular{
     l.inserirInicio("A");
     l.inserirFim("D");
     l.inserirNoIndice(2, "C");
-    System.out.println(l.exibirLista());
+    System.out.println(l.exibirLista());*/
   }
   
 }
