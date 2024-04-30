@@ -101,6 +101,7 @@ public class ListaSimplesCircular{
     }
   }
 
+  //Fazer
   public String retirarNoIndice(){
     return null;
   }
