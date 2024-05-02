@@ -4,7 +4,6 @@ public class ListaSimplesCircular{
   No inicio = null;
   int tamanho = 0;
 
-  //Corrigido
   public void inserirInicio(String info){
     No no = new No();
     no.info = info;
@@ -23,7 +22,6 @@ public class ListaSimplesCircular{
     tamanho++;
   }
 
-  //Corrigido
   public String retirarInicio(){
     if(inicio == null){
       return null;
@@ -44,7 +42,6 @@ public class ListaSimplesCircular{
     }
   }
 
-  //Corrigido
   public void inserirFim(String info){
     No no = new No();
     no.info = info;
@@ -61,7 +58,6 @@ public class ListaSimplesCircular{
     tamanho++;
   }
 
-  //Corrigido
   public String retirarFim(){
     if(inicio == null){
       return null;
@@ -83,7 +79,6 @@ public class ListaSimplesCircular{
       }
   }
 
-  //Aparantemente funcionando sem problemas(checar)
   public void inserirNoIndice(int indice, String info){
     No no = new No();
     no.info = info;
@@ -101,12 +96,31 @@ public class ListaSimplesCircular{
     }
   }
 
-  //Fazer
-  public String retirarNoIndice(){
-    return null;
+  public String retirarNoIndice(int indice){
+    if(indice < 0 ||
+       indice >= tamanho ||
+       inicio == null ){
+      return null;
+    } else if(indice == 0){
+      return(retirarInicio());
+    } else if(indice == tamanho-1){
+      return(retirarFim());
+    } else{
+      No apontaPraAtual = inicio;
+      for(int i = 0; i < indice - 1; i++){
+        apontaPraAtual = apontaPraAtual.proximo;
+      }
+      String info = apontaPraAtual.proximo.info;
+      apontaPraAtual.proximo = apontaPraAtual.proximo.proximo;
+      tamanho--;
+      return info;
+    }
   }
 
   public String exibirLista(){
+    if(inicio == null){
+      return "Não há nada para retirar";
+    }
     String lista = "(" + tamanho + ")" + " ";
     No apontaPraAtual = inicio;
     while(apontaPraAtual.proximo != null){
@@ -153,17 +167,12 @@ public class ListaSimplesCircular{
     l.retirarInicio();
     l.inserirNoIndice(0, "A");
     System.out.println(l.exibirLista());
-    /*l.inserirFim("B");
-    l.inserirFim("C");
+    l.retirarNoIndice(0);
+    l.retirarNoIndice(1);
     System.out.println(l.exibirLista());
-    l.retirarInicio();
+    l.retirarNoIndice(0);
     System.out.println(l.exibirLista());
-    l.retirarFim();
-    System.out.println(l.exibirLista());
-    l.inserirInicio("A");
-    l.inserirFim("D");
-    l.inserirNoIndice(2, "C");
-    System.out.println(l.exibirLista());*/
+
   }
   
 }
