@@ -27,6 +27,26 @@ public class ListaDuplaCircular{
     tamanho++;
   }
 
+  public String retirarInicio(){
+    if(inicio == null){
+      return null;
+    } else{
+      String info = inicio.info;
+      if(inicio.proximo == inicio){
+        inicio = null;
+      } else{
+        No apontaPraAtual = inicio;
+        while(apontaPraAtual.proximo != inicio){
+          apontaPraAtual = apontaPraAtual.proximo;
+        }
+        apontaPraAtual.proximo = inicio.proximo; 
+        inicio = apontaPraAtual.proximo;
+      }
+      tamanho--;
+      return "Retirado" + info;
+    }
+  }
+
   public String exibirLista(){
     if(inicio == null){
       return "Não há nada para retirar";
@@ -51,6 +71,10 @@ public class ListaDuplaCircular{
     l.inserirInicio("B");
     System.out.println(l.exibirLista());
     l.inserirInicio("C");
+    System.out.println(l.exibirLista());
+    l.retirarInicio();
+    System.out.println(l.exibirLista());
+    l.retirarInicio();
     System.out.println(l.exibirLista());
   }
   
