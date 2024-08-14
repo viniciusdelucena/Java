@@ -95,6 +95,12 @@ public class ArvoreBinaria {
         return node;
     }
 
-    private boolean estaVazio() { return getRaiz() == null; }
+    private boolean estaVazio() { 
+        if(this.raiz == null){
+            return true;
+        } else{
+            return false;
+        }
+     }
 
 }
